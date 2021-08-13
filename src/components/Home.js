@@ -29,14 +29,6 @@ import AlbumSharpIcon from '@material-ui/icons/AlbumSharp';
           this.setState({isClicked: true}); 
         }
     }
-
-    filterSearch = (term) =>{
-        return(item) => {
-          return (
-            item.band_name.toLowerCase().includes(term.toLowerCase())
-          )
-        }
-    }
     
 
     render(){
