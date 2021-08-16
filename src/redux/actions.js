@@ -1,8 +1,8 @@
-const url = "https://musicapp17.herokuapp.com/bands"
+const bandurl = "https://musicapp17.herokuapp.com/bands"
 
 export const fetchBands = () => {
     return(dispatch) => {
-        fetch(url)
+        fetch(bandurl)
             .then(res => res.json())
             .then(bands =>{
                 const bandAction = {
