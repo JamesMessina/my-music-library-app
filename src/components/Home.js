@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { Card, Button, TextField, CardHeader, CardContent, Container, Divider } from '@material-ui/core';
+import { Card, Button, TextField, CardHeader, CardContent, CardActions, Container, Divider } from '@material-ui/core';
 import AlbumSharpIcon from '@material-ui/icons/AlbumSharp';
+import { Link } from 'react-router-dom';
 
-  class Home extends Component {
+
+class Home extends Component {
     constructor(props){
         super(props)
     
@@ -47,11 +49,11 @@ import AlbumSharpIcon from '@material-ui/icons/AlbumSharp';
                                 <CardContent>
                                     <CardHeader avatar={<AlbumSharpIcon/>} title={band.band_name} subheader={band.yearsActive} />
                                     <p>origin: {band.origin}</p>
-                                    <Divider />
-                                    <Button size="medium" color="primary">
-                                        Full Band Info
-                                    </Button>
                                 </CardContent>
+                                <Divider />
+                                <CardActions style={{color: 'mediumblue'}}>
+                                    <Link to={`/band/${band.history_id}`}>See Band History</Link>
+                                </CardActions>
                             </Card>
                         )
                     })}
@@ -62,11 +64,11 @@ import AlbumSharpIcon from '@material-ui/icons/AlbumSharp';
                             <CardContent>
                                 <CardHeader avatar={<AlbumSharpIcon/>} title={filteredBand.band_name} subheader={filteredBand.yearsActive} />
                                 <p>origin: {filteredBand.origin}</p>
-                                <Divider />
-                                <Button size="medium" color="primary">
-                                    Full Band Info
-                                </Button>
                             </CardContent>
+                            <Divider />
+                            <CardActions style={{color: 'mediumblue'}}>
+                                <Link to={`/band/${filteredBand.history_id}`}>See Band History</Link>
+                            </CardActions>
                         </Card>
                     ))}
                 </div>
@@ -79,13 +81,3 @@ import AlbumSharpIcon from '@material-ui/icons/AlbumSharp';
 
 export default Home 
 
-//<Card raised={true} className="card-container"  variant="outlined" key={idx}>
-                                  //  <CardContent>
-                                     //   <CardHeader avatar={<AlbumSharpIcon/>} title={band.band_name} subheader={band.yearsActive} />
-                                      //  <p>origin: {band.origin}</p>
-                                      //  <Divider />
-                                      //  <Button size="medium" color="primary">
-                                      //      Full Band Info
-                                      //  </Button>
-                                   // </CardContent>
-                               // </Card>
