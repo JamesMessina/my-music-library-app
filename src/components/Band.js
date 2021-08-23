@@ -8,8 +8,9 @@ const Band = (props) =>{
 
     return (
         <Container component="section" maxWidth="lg">
-            <Paper variant="elevation" elevation="10">
-                <h1 style={{textAlign: "center"}}>{band.band_name}</h1>
+            <Paper style={{textAlign: "center"}} variant="elevation" elevation={10}>
+                <h1>{band.band_name}</h1>
+                <img alt="band_pic" src={band.image}></img>
             </Paper>
         </Container>
     )
