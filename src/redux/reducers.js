@@ -9,6 +9,15 @@ const bands = (state = [], action) => {
       }
 }
 
+const histories = (state = [], action) => {
+    switch(action.type) {
+        case 'FETCH_HISTORIES' :
+            return action.value
+        default: 
+            return state
+    }
+}
 
 
-export default combineReducers({ bands })
+
+export default combineReducers({ bands, histories })

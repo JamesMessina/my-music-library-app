@@ -1,4 +1,5 @@
 // eslint-disable-next-line
 export default {
-    bands: []
+    bands: [],
+    histories: []
 }
