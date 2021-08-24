@@ -24,6 +24,11 @@ class Home extends Component {
         })
     }
 
+    handleClear = () =>{
+        this.setState({bandName: ""}); 
+        this.setState({isClicked: false})
+    }
+
     handleClick = () =>{
         if(this.state.isClicked){
           this.setState({isClicked: false}); 
@@ -39,6 +44,7 @@ class Home extends Component {
                 <form className="band-search-form" noValidate autoComplete="off">
                     <TextField margin="normal" name="bandName" value={this.state.bandName} onChange={this.handleChange} type="text" color= "primary" id="standard-basic"  placeholder="band name" />
                     <Button onClick={this.handleClick} style={{marginTop: "20px", marginLeft: "30px"}} size="small" variant="contained" color="primary">Search</Button>
+                    <Button onClick={this.handleClear} style={{marginTop: "20px", marginLeft: "30px"}} size="small" variant="contained" color="primary">Clear</Button>
                 </form>
                 {
                 !this.state.isClicked ?

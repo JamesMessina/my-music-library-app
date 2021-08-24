@@ -1,4 +1,4 @@
-const bandurl = "https://musicapp17.herokuapp.com/bands"
+const bandurl = `${process.env.REACT_APP_API_URL}/bands`
 
 export const fetchBands = () => {
     return(dispatch) => {
@@ -17,7 +17,6 @@ export const fetchBands = () => {
             })
     }
 }
-
 
 
 
