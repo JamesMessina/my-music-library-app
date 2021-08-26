@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom'
 
 const Navigation = () => {
     return (
-        <AppBar style={{marginBottom: '10px'}} position="relative">
+        <AppBar style={{fontFamily: "'Besley', serif", marginBottom: '10px'}} position="relative">
             <Toolbar>
                 <IconButton color="inherit">
                     <MusicNoteIcon fontSize="large" />
                 </IconButton>
-                <Typography variant="h6" style={{ fontFamily: 'Roboto', fontStyle: "italic", fontSize: "2em", flexGrow: "1" }}>
+                <Typography variant="h6" style={{fontSize: "2em", flexGrow: "1" }}>
                     Music Catalog
                 </Typography>
                 <ul className="nav-list">
