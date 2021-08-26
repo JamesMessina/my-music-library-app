@@ -8,17 +8,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
         margin: theme.spacing(4),
+        
     },
   },
   form: {
     
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
-  },
-  buttoncontainer: {
-    display: "flex",
-    flexDirection: "row",
     alignItems: "center"
   },
   button:{
@@ -40,6 +36,7 @@ function LoginPage() {
 
                         <TextField label="username" required id="standard-required" /><br/>
                         <TextField
+                            style={{marginTop: "10px"}}
                             label="password"
                             required={true}
                             id="standard-password-input"

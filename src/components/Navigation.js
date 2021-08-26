@@ -17,10 +17,10 @@ const Navigation = () => {
                 </Typography>
                 <ul className="nav-list">
                     <li className="nav-list-item">
-                        <Link to="/">Home</Link>
+                        <Link to="/">Login</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/about">About</Link>
+                        <Link to="/dashboard">Home</Link>
                     </li>
                     <li className="nav-list-item">
                         <Link to="/dashboard">Post Band</Link>
