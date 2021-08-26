@@ -23,9 +23,6 @@ const Navigation = () => {
                         <Link to="/dashboard">Home</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/dashboard">Post Band</Link>
-                    </li>
-                    <li className="nav-list-item">
                         <Link to="/import">Post Album</Link>
                     </li>
                 </ul>
