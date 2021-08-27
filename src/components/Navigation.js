@@ -23,7 +23,7 @@ const Navigation = () => {
                         <Link to="/dashboard">Home</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/import">Post Album</Link>
+                        <Link to="/import">Post Band</Link>
                     </li>
                 </ul>
             </Toolbar>
