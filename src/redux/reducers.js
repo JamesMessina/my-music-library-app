@@ -11,7 +11,7 @@ const bands = (state = [], action) => {
 
 const histories = (state = [], action) => {
     switch(action.type) {
-        case 'FETCH_HISTORIES' :
+        case 'FETCH_HISTORIES_SUCCESS' :
             return action.value
         default: 
             return state
