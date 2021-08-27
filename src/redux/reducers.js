@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 const bands = (state = [], action) => {
     switch(action.type) {
-        case 'FETCH_BANDS' :
+        case 'FETCH_BANDS_SUCCESS' :
             return action.value
         default:
             return state
