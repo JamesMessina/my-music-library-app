@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Home from '../components/Home'
-import { fetchBands } from '../redux/actions'
+import { fetchBands } from '../redux/actions/bandActions'
 
 const mapStateToProps = (state) => {
     return {

@@ -1,7 +1,7 @@
-import React from 'react';
+import { React, useState } from "react"; 
 import {TextField, Paper, Container, Button} from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Link } from 'react-router-dom'; 
 
 
 const useStyles = makeStyles((theme) => ({
@@ -11,35 +11,66 @@ const useStyles = makeStyles((theme) => ({
         
     },
   },
+
   form: {
     
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   },
+
   button:{
-      marginLeft: "70px",
-      marginBottom: "10px"
+    marginLeft: "70px",
+    marginBottom: "10px"
+  },
+
+  newuserlink:{
+    marginBottom: "20px",
+    textAlign: "center",
+    color: "#3E73E0"
   }
 
 }));
 
-function LoginPage() {
+function LoginPage(props) {
   const classes = useStyles();
+
+  const [user, setUser] = useState({ email: "", password: "" }); 
+  const [error, setError] = useState("");
+
+  function handleInputChanges(event){
+    const { name, value } = event.target
+
+    setUser((previoususer) => ({
+      ...previoususer, 
+      [name] : value,
+    }))
+  }
+
+  function handleFormSubmit(event){
+    event.preventDefault(); 
+    const payload = { user }
+    console.log(payload)
+    
+  }
+
 
   return (
     <div className={classes.root}>
         <Container style={{marginTop: "30px"}} maxWidth="xs">
             <Paper elevation={20}>
                 <div className={classes.form}>
-                    <form noValidate autoComplete="off">
+                  <div>{error}</div>
+                    <form onSubmit={handleFormSubmit}>
 
-                        <TextField label="username" required id="standard-required" /><br/>
+                        <TextField label="Email" name="email" type="email" value={user.email} onChange={handleInputChanges} required /><br/>
                         <TextField
                             style={{marginTop: "10px"}}
-                            label="password"
-                            required={true}
-                            id="standard-password-input"
+                            label="Password"
+                            name="password"
+                            required
+                            value={user.password}
+                            onChange={handleInputChanges}
                             type="password"
                         />
                         <div>
@@ -47,6 +78,7 @@ function LoginPage() {
                                 Sign In 
                             </Button>
                         </div>
+                        <p className={classes.newuserlink}><Link to="">Not a member? Click here</Link></p>
                     </form>
                 </div>
             </Paper>

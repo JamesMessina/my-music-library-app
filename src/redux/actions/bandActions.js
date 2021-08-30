@@ -1,4 +1,4 @@
-import { handleResponse, handleError } from "../api/apiUtils"
+import { handleResponse, handleError } from "../../api/apiUtils"
 import { loadBandsSuccess, loadHistoriesSuccess } from "./ActionTypes"
 
 const bandurl = `${process.env.REACT_APP_API_URL}/bands`

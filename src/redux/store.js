@@ -1,6 +1,8 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 import state from './state'
 
-export default createStore(reducers, state, applyMiddleware(thunk))
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
+
+export default createStore(reducers, state, composeEnhancer(applyMiddleware(thunk)));
