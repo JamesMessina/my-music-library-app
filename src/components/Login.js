@@ -49,9 +49,9 @@ function LoginPage(props) {
 
   function handleFormSubmit(event){
     event.preventDefault(); 
-    const payload = { user }
-    console.log(payload)
-    props.
+    console.log(user)
+    props.SignIn(user)
+      .catch((error) => setError(error))
   }
 
 
