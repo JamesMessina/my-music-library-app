@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux'
 
-const bands = (state = [], action) => {
+export const bands = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_BANDS_SUCCESS' :
             return action.value
@@ -9,7 +8,7 @@ const bands = (state = [], action) => {
       }
 }
 
-const histories = (state = [], action) => {
+export const histories = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_HISTORIES_SUCCESS' :
             return action.value
@@ -20,4 +19,3 @@ const histories = (state = [], action) => {
 
 
 
-export default combineReducers({ bands, histories })

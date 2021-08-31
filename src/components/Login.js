@@ -51,7 +51,7 @@ function LoginPage(props) {
     event.preventDefault(); 
     const payload = { user }
     console.log(payload)
-    
+    props.
   }
 
 

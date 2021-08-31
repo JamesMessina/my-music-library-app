@@ -1,0 +1,1 @@
+export const authUrlLogin = `${process.env.REACT_APP_API_URL}/auth/login`

@@ -1,8 +1,7 @@
 import { handleResponse, handleError } from "../../api/apiUtils"
+import { bandurl, historyUrl } from "../../api/bandsApis"
 import { loadBandsSuccess, loadHistoriesSuccess } from "./ActionTypes"
 
-const bandurl = `${process.env.REACT_APP_API_URL}/bands`
-const historyUrl = `${process.env.REACT_APP_API_URL}/bandhistories`
 
 export const fetchBands = () => {
     return(dispatch) => {
