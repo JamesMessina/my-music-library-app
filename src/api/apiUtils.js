@@ -13,6 +13,8 @@ export function handleError(error) {
 }
 
 export function storeTokenOnLocalStorage(response){
+
+  
   localStorage.setItem("token", response.access_token);
 
   response.name = "James Messina"; 
@@ -20,4 +22,5 @@ export function storeTokenOnLocalStorage(response){
   delete response.token;
 
   return response; 
+  
 }

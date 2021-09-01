@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router'
 import Home from './containers/Home'
 import Band from './containers/Band'
-import LoginPage from './components/Login'
+import LoginPage from './containers/Login'
 
 
 const Router = () => {

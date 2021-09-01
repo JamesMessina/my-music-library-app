@@ -1,10 +1,10 @@
 import * as authApi from "../../api/authApi"
-import { signInUserSuccess } from './ActionTypes/'
+import { signInUserSuccess } from './ActionTypes'
 
-export const signInUser = (user) => {
+export function signInUser(user) {
     return function(dispatch) {
         return authApi
-            .SignIn(user)
+            .signIn(user)
             .then((userAccount) => dispatch(signInUserSuccess(userAccount)))
             .catch((error) => console.log(error)); 
     }

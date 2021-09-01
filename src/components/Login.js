@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  loginMessage: {
+    textAlign: "center"
+  },
+
   form: {
     
     display: "flex",
@@ -36,7 +40,8 @@ function LoginPage(props) {
   const classes = useStyles();
 
   const [user, setUser] = useState({ email: "", password: "" }); 
-  const [error, setError] = useState("");
+  const [accessToken, setAccessToken] = useState("");
+ 
 
   function handleInputChanges(event){
     const { name, value } = event.target
@@ -47,23 +52,24 @@ function LoginPage(props) {
     }))
   }
 
-  function handleFormSubmit(event){
+  const handleFormSubmit = (event) => {
     event.preventDefault(); 
     console.log(user)
     
     props.signInUser(user)
-      .catch((error) => setError(error))
+      .then(setAccessToken(props.user.access_token))
   }
+
+  
 
 
   return (
     <div className={classes.root}>
         <Container style={{marginTop: "30px"}} maxWidth="xs">
+        <div className={classes.loginMessage}>{props.user.hasOwnProperty("message") ? "Username/Password incorrect or signup for new account" :  props.user.name}</div>
             <Paper elevation={20}>
                 <div className={classes.form}>
-                  <div>{error}</div>
                     <form onSubmit={handleFormSubmit}>
-
                         <TextField label="Email" name="email" type="email" value={user.email} onChange={handleInputChanges} required /><br/>
                         <TextField
                             style={{marginTop: "10px"}}
@@ -80,7 +86,7 @@ function LoginPage(props) {
                             </Button>
                         </div>
                         <p className={classes.newuserlink}><Link to="">Not a member? Click here</Link></p>
-                    </form>
+                    </form> 
                 </div>
             </Paper>
         </Container>

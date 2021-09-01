@@ -2,7 +2,7 @@ import { handleResponse, handleError, storeTokenOnLocalStorage } from "./apiUtil
 
 const authUrlLogin = `${process.env.REACT_APP_API_URL}/auth/login`
 
-export const SignIn = (user) => {
+export function signIn(user) {
     return fetch(authUrlLogin, {
         method: "POST", 
         headers: { "content-type": "application/json"},
