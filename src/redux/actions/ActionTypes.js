@@ -15,3 +15,12 @@ export const loadHistoriesSuccess = (histories) => {
     console.log(histories)
     return(historyAction)
 }
+
+export const signInUserSuccess = (user) => {
+    const signInAction = {
+        type: "SIGN_IN_USER_SUCCESS",
+        value: user
+    }
+    console.log(user)
+    return(signInAction)
+}

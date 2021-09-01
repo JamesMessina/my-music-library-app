@@ -50,7 +50,8 @@ function LoginPage(props) {
   function handleFormSubmit(event){
     event.preventDefault(); 
     console.log(user)
-    props.SignIn(user)
+    
+    props.signInUser(user)
       .catch((error) => setError(error))
   }
 

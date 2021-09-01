@@ -1,13 +1,11 @@
-import { handleResponse, handleError } from "../../api/apiUtils"
-import { authUrlLogin } from "../../api/authApi"
+import * as authApi from "../../api/authApi"
+import { signInUserSuccess } from './ActionTypes/'
 
-export const SignIn = (user) => {
-    return(dispatch) => {
-        fetch(authUrlLogin, {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(user),
-        })
-        .then(handleResponse)
+export const signInUser = (user) => {
+    return function(dispatch) {
+        return authApi
+            .SignIn(user)
+            .then((userAccount) => dispatch(signInUserSuccess(userAccount)))
+            .catch((error) => console.log(error)); 
     }
 }
