@@ -42,7 +42,6 @@ export default function LoginPage(props) {
   let history = useHistory(); 
 
   const [user, setUser] = useState({ email: "", password: "" }); 
-  const [accessToken, setAccessToken] = useState("");
   const [error, setError] = useState(""); 
  
 
@@ -60,7 +59,6 @@ export default function LoginPage(props) {
     console.log(user);
     
     props.signInUser(user)
-      .then(setAccessToken(props.user.access_token))
       .then(() => props.history.push("/dashboard"));
   }
   

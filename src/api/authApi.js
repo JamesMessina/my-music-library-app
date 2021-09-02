@@ -10,5 +10,4 @@ export function signIn(user) {
     })
     .then(handleResponse)
     .then(storeTokenOnLocalStorage)
-    .catch(handleError)
 }
