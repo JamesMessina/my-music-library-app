@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import {TextField, Paper, Container, Button} from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'; 
+import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,11 +37,13 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function LoginPage(props) {
+export default function LoginPage(props) {
   const classes = useStyles();
+  let history = useHistory(); 
 
   const [user, setUser] = useState({ email: "", password: "" }); 
   const [accessToken, setAccessToken] = useState("");
+  const [error, setError] = useState(""); 
  
 
   function handleInputChanges(event){
@@ -52,14 +55,14 @@ function LoginPage(props) {
     }))
   }
 
-  const handleFormSubmit = (event) => {
+  function handleFormSubmit(event) {
     event.preventDefault(); 
-    console.log(user)
+    console.log(user);
     
     props.signInUser(user)
       .then(setAccessToken(props.user.access_token))
+      .then(() => props.history.push("/dashboard"));
   }
-
   
 
 
@@ -94,4 +97,3 @@ function LoginPage(props) {
   );
 }
 
-export default LoginPage
