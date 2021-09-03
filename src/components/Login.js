@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import {TextField, Paper, Container, Button} from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'; 
-import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,12 +37,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LoginPage(props) {
-  const classes = useStyles();
-  let history = useHistory(); 
+  const classes = useStyles(); 
 
-  const [user, setUser] = useState({ email: "", password: "" }); 
-  const [error, setError] = useState(""); 
- 
+  const [user, setUser] = useState({ email: "", password: "" });
+
 
   function handleInputChanges(event){
     const { name, value } = event.target
@@ -57,9 +54,8 @@ export default function LoginPage(props) {
   function handleFormSubmit(event) {
     event.preventDefault(); 
     console.log(user);
-    
     props.signInUser(user)
-      .then(() => props.history.push("/dashboard"));
+      .then(props.history.push('/home'))
   }
   
 
@@ -67,7 +63,6 @@ export default function LoginPage(props) {
   return (
     <div className={classes.root}>
         <Container style={{marginTop: "30px"}} maxWidth="xs">
-        <div className={classes.loginMessage}>{props.user.hasOwnProperty("message") ? "Username/Password incorrect or signup for new account" :  props.user.name}</div>
             <Paper elevation={20}>
                 <div className={classes.form}>
                     <form onSubmit={handleFormSubmit}>

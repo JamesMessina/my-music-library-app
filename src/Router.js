@@ -9,7 +9,7 @@ const Router = () => {
     return (
         <Switch>
             <Route exact path="/" component={LoginPage} />
-            <Route path="/dashboard" component={Home} type="private" />
+            <Route path="/home" component={Home} type="private" />
             <Route exact path="/band/:history_id" component={Band} />
         </Switch>
     );

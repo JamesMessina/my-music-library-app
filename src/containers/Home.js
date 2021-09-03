@@ -4,7 +4,8 @@ import { fetchBands } from '../redux/actions/bandActions'
 
 const mapStateToProps = (state) => {
     return {
-        bands: state.bands
+        bands: state.bands, 
+        user: state.user
     }
 }
 

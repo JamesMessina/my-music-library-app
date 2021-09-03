@@ -18,6 +18,7 @@ export function storeTokenOnLocalStorage(response){
   if(response.hasOwnProperty("access_token"))  {
 
     response.username = "James Messina"; 
+    response.isAuthUser = true; 
     localStorage.setItem("token", response.access_token);
     localStorage.setItem("name", response.username)
 
@@ -26,6 +27,7 @@ export function storeTokenOnLocalStorage(response){
     console.log(response)
   
     return response; 
+    
   }else{
     
     return handleError(response)
