@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import {TextField, Paper, Container, Button} from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'; 
+import { useHistory } from 'react-router-dom'; 
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,8 +39,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginPage(props) {
   const classes = useStyles(); 
+  const history = useHistory();  
 
   const [user, setUser] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
 
 
   function handleInputChanges(event){
@@ -50,13 +53,18 @@ export default function LoginPage(props) {
       [name] : value,
     }))
   }
+  
 
   function handleFormSubmit(event) {
     event.preventDefault(); 
     console.log(user);
-    props.signInUser(user)
-      .then(props.history.push('/home'))
-  }
+    
+    props
+      .signInUser(user)
+      .then(() => history.push("/home"))
+      .catch((error) => setError("incorrect username or password"));
+
+  } 
   
 
 
@@ -64,6 +72,7 @@ export default function LoginPage(props) {
     <div className={classes.root}>
         <Container style={{marginTop: "30px"}} maxWidth="xs">
             <Paper elevation={20}>
+            <div style={{paddingTop: "30px", textAlign: "center"}}>{error}</div>
                 <div className={classes.form}>
                     <form onSubmit={handleFormSubmit}>
                         <TextField label="Email" name="email" type="email" value={user.email} onChange={handleInputChanges} required /><br/>

@@ -6,6 +6,5 @@ export function signInUser(user) {
         return authApi
             .signIn(user)
             .then((userAccount) => dispatch(signInUserSuccess(userAccount)))
-            .catch((error) => console.log(error)); 
     }
 }
