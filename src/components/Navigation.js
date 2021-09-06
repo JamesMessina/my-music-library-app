@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { AppBar, Toolbar, IconButton, 
     Typography, 
     Button} from '@material-ui/core'
@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom';
 
 
-const Navigation = () => {
+const Navigation = (props) => {
+
 
     const history = useHistory(); 
 
@@ -15,7 +16,7 @@ const Navigation = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("name"); 
 
-        history.push("/")
+        history.push("/"); 
     }
 
     return (

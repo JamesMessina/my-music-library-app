@@ -15,7 +15,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchBands()
+        this.props.fetchBands();
     }
 
     handleChange = (e) =>{
@@ -36,7 +36,6 @@ class Home extends Component {
           this.setState({isClicked: true}); 
         }
     }
-    
 
     render(){
         return(
@@ -45,7 +44,7 @@ class Home extends Component {
                     <TextField margin="normal" name="bandName" value={this.state.bandName} onChange={this.handleChange} type="text" color= "primary" id="standard-basic"  placeholder="band name" />
                     <Button onClick={this.handleClick} style={{marginTop: "20px", marginLeft: "30px"}} size="small" variant="contained" color="primary">Search</Button>
                     <Button onClick={this.handleClear} style={{marginTop: "20px", marginLeft: "30px"}} size="small" variant="contained" color="primary">Clear</Button>
-                    <h1>{!this.props.user.name ? "" : `Welcome ${this.props.user.name}`}</h1>
+                    <h1>Welcome, {this.props.user.name}</h1>
                 </form>
                 {
                 !this.state.isClicked ?

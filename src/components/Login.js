@@ -72,7 +72,7 @@ export default function LoginPage(props) {
     <div className={classes.root}>
         <Container style={{marginTop: "30px"}} maxWidth="xs">
             <Paper elevation={20}>
-            <div style={{paddingTop: "30px", textAlign: "center"}}>{error}</div>
+            <div style={{color: "red", paddingTop: "30px", textAlign: "center"}}>{error}</div>
                 <div className={classes.form}>
                     <form onSubmit={handleFormSubmit}>
                         <TextField label="Email" name="email" type="email" value={user.email} onChange={handleInputChanges} required /><br/>
