@@ -1,6 +1,6 @@
 import { handleResponse, handleError, storeTokenOnLocalStorage } from "./apiUtils"
 
-const authUrlLogin = `${process.env.REACT_APP_API_URL}/auth/login`
+const authUrlLogin = `${process.env.REACT_APP_API_URL}/auth/signin`
 
 export function signIn(user) {
     return fetch(authUrlLogin, {

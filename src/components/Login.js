@@ -90,7 +90,7 @@ export default function LoginPage(props) {
                                 Sign In 
                             </Button>
                         </div>
-                        <p className={classes.newuserlink}><Link to="">Not a member? Click here</Link></p>
+                        <p className={classes.newuserlink}><Link to="/signup">Not a member? Click here</Link></p>
                     </form> 
                 </div>
             </Paper>

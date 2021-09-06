@@ -16,10 +16,10 @@ export function handleError(error) {
 export function storeTokenOnLocalStorage(response){
 
 
-    response.username = "James Messina"; 
-    response.isAuthUser = true; 
-    localStorage.setItem("token", response.access_token);
-    localStorage.setItem("name", response.username)
+    const user = response.name; 
+    const token = response.accessToken; 
+    localStorage.setItem("token", user);
+    localStorage.setItem("name", token)
 
     delete response.access_token;
 
