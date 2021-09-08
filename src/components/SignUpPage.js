@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import { useHistory } from 'react-router-dom'; 
 
 const useStyles = makeStyles({
     root: {
@@ -27,21 +28,32 @@ const useStyles = makeStyles({
 
 function SignUpPage(props){
     const classes = useStyles(); 
+    const history = useHistory(); 
 
     const [newUser, setNewUser] = useState({ name: "", email: "", password: "" });
+    const [isClicked, setClick] = useState(false); 
 
     function handleInputChanges(event) {
-        const { name, value } = event.target;
+      const { name, value } = event.target;
     
-        setNewUser((previousNewUser) => ({
-          ...previousNewUser,
-          [name]: value,
-        }));
+      setNewUser((previousNewUser) => ({
+        ...previousNewUser,
+        [name]: value,
+      }));
+    }
+
+    function returnToLogin(){
+      if(isClicked === false){
+        setClick(true); 
+        history.push("/")
+      }else{
+        setClick(false); 
+      }
     }
 
     function handleFormSubmit(event) {
-        event.preventDefault();
-        console.log(newUser);
+      event.preventDefault();
+      console.log(newUser);
     }
 
     return (
@@ -92,7 +104,7 @@ function SignUpPage(props){
                 >
                   Sign up
                 </Button>
-                <Button variant="outlined" color="primary">
+                <Button onClick={returnToLogin} variant="outlined" color="primary">
                   Cancel
                 </Button>
               </div>
