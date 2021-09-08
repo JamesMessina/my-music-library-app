@@ -15,13 +15,13 @@ export function handleError(error) {
 
 export function storeTokenOnLocalStorage(response){
 
-
+    console.log(response)
     const user = response.name; 
     const token = response.accessToken; 
-    localStorage.setItem("token", user);
-    localStorage.setItem("name", token)
+    localStorage.setItem("name", user);
+    localStorage.setItem("token", token); 
 
-    delete response.access_token;
+    delete response.accessToken; 
 
     console.log(response)
   
